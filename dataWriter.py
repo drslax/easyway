@@ -46,6 +46,7 @@ def print_result(dic):
     for item in tab:
         wSheet.write(row, col, tab[col-1], m_format)
         col +=1
+    row += 1
     for i in range(0,10):
         col = 1
         wSheet.write(row, col, dic[i]["Depart"], m_format)
