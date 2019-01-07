@@ -26,29 +26,29 @@ def print_result(dic):
 
 # Format in merge cases:
     m_format = wBook.add_format({
-        'bold': 1,
-        'border': 1,
-        'border_color' : 'blue',
+        'bold': 2,
+        'border': 2,
+        'border_color' : 'gray',
         'align': 'center',
         'valign': 'vcenter',
         'fg_color': '#00ffbf'})
 
 # Merge cells:
-    wSheet.merge_range('B1:I1', datetime.datetime.now().strftime("%A %B %Y    %X %z"), m_format)
-    wSheet.merge_range('D3:I3', 'Prix', m_format)
+    wSheet.merge_range('A1:H1', datetime.datetime.now().strftime("%A %B %Y    %X %z"), m_format)
+    wSheet.merge_range('C3:H3', 'Prix', m_format)
 
 
 # Start from the first cell and write data:
     tab = ['Depart', 'Destination', 'Lecab', 'Uber Green', 'Uber UberX', 'Uber berline', 'Uber Van', 'Uber ACCESS']
 
     row = 3
-    col = 1
+    col = 0
     for item in tab:
-        wSheet.write(row, col, tab[col-1], m_format)
+        wSheet.write(row, col, tab[col], m_format)
         col +=1
     row += 1
     for i in range(0,10):
-        col = 1
+        col = 0
         wSheet.write(row, col, dic[i]["Depart"], m_format)
         col += 1
         wSheet.write(row, col, dic[i]["Destination"], m_format)
